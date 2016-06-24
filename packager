@@ -1,3 +1,24 @@
 #!/bin/bash
 
-source ./ArduinoPackager/packager
+function check_file_exists()
+{
+	local _FILE_NAME=${1}
+	
+	if [ -f "${_FILE_NAME}" ]
+	then
+		return 0 #true
+	else
+		return 1 #false
+	fi	
+}
+
+
+if check_file_exists "./ArduinoPackager/packager"
+then
+	source "./ArduinoPackager/packager"
+else
+	echo "first time running packager.. fetching submodule.."
+	git submodule foreach git pull origin master
+	git submodule foreach git reset HEAD --hard
+fi
+
