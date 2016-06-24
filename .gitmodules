@@ -1,0 +1,3 @@
+[submodule "ArduinoPackager"]
+	path = ArduinoPackager
+	url = https://github.com/ATtinyTeenageRiot/ArduinoPackager.git
